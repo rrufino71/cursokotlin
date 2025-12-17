@@ -14,8 +14,8 @@ class TodoActivity : AppCompatActivity() {
         TaskCategory.Other
     )
 
-    private lateinit var rvCategories:RecyclerView
-    private lateinit var categoriesAdapter:CategoriesAdapter
+    private lateinit var rvCategories: RecyclerView
+    private lateinit var categoriesAdapter: CategoriesAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +34,9 @@ class TodoActivity : AppCompatActivity() {
 
     private fun initUI() {
         categoriesAdapter = CategoriesAdapter(categories)
-        rvCategories.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
-        rvCategories.adapter=categoriesAdapter
+        rvCategories.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvCategories.adapter = categoriesAdapter
 
 
     }
