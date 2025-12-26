@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.example.cursoaristidevs.firstapp.FirstAppActivity
 import com.example.cursoaristidevs.imccalculator.ImcCalculatorActivity
+import com.example.cursoaristidevs.superheroapp.SuperHeroListActivity
 import com.example.cursoaristidevs.todoapp.TodoActivity
 
 
@@ -17,11 +18,18 @@ class MenuActivity : AppCompatActivity() {
         val btnSaludarApp = findViewById<Button>(R.id.btnSaludarApp)
         val btnIMCApp = findViewById<Button>(R.id.btnIMCApp)
         val btnTODO = findViewById<Button>(R.id.btnTODO)
+        val btnSuperHeroApp = findViewById<Button>(R.id.btnSuperHeroApp)
 
         btnSaludarApp.setOnClickListener { navigateToSaludarApp()}
         btnIMCApp.setOnClickListener { navigateToIMCApp()}
         btnTODO.setOnClickListener { navigateToTodoApp()}
+        btnSuperHeroApp.setOnClickListener { navigateToSuperHeroApp()}
 
+    }
+
+    private fun navigateToSuperHeroApp() {
+        val intent = Intent(this, SuperHeroListActivity::class.java )
+        startActivity(intent)
     }
 
     private fun navigateToTodoApp() {
