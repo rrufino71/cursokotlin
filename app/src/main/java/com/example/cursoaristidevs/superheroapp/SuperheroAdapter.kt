@@ -16,7 +16,8 @@ class SuperheroAdapter(var superheroList: List<SuperheroItemResponse> = emptyLis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
-        return  SuperheroViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_superhero,parent,false))
+        return  SuperheroViewHolder(LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_superhero,parent,false))
 
     }
 

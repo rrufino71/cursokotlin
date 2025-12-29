@@ -65,7 +65,7 @@ class SuperHeroListActivity : AppCompatActivity() {
                 Log.i("aris","Funciona :)")
                 val response: SuperHeroDataResponse? = myResponse.body()
                 if(response != null){
-                    Log.i("aris",response.toString())
+                    Log.i("response",response.toString())
                     runOnUiThread {
                         // no se puede llamar a la ui desde una coroutineScope
                         adapter.updateList(response.superheroes)
