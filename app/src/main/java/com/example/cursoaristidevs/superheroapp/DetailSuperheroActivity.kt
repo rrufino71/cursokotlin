@@ -3,6 +3,8 @@ package com.example.cursoaristidevs.superheroapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
+import android.view.View
 import androidx.core.view.isVisible
 import com.example.cursoaristidevs.R
 import com.example.cursoaristidevs.databinding.ActivityDetailSuperheroBinding
@@ -13,6 +15,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.roundToInt
 
 class DetailSuperheroActivity : AppCompatActivity() {
 
@@ -59,5 +62,26 @@ class DetailSuperheroActivity : AppCompatActivity() {
         Picasso.get()
             .load("https://picsum.photos/200/300")
             .into(binding.ivSuperhero)
+        binding.tvSuperheroName.text = superhero.name
+        prepareStats(superhero.powerstats)
+    }
+
+    private fun prepareStats(powerstats: PowerStatsResponse) {
+      updateHeight(binding.viewCombat, powerstats.combat)
+      updateHeight(binding.viewStrength, powerstats.strength)
+      updateHeight(binding.viewSpeed, powerstats.speed)
+      updateHeight(binding.viewDurability, powerstats.durability)
+      updateHeight(binding.viewIntelligence, powerstats.intelligence)
+      updateHeight(binding.viewPower, powerstats.power)
+    }
+
+    private fun updateHeight(view: View, stat: String) {
+            val params = view.layoutParams
+            params.height = pxToDp(stat.toFloat())
+            view.layoutParams = params
+    }
+
+    private fun pxToDp(px: Float): Int {
+       return  TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,px,resources.displayMetrics).roundToInt()
     }
 }
