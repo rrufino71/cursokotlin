@@ -12,10 +12,17 @@ class SuperheroViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     fun bind(superheroItemResponse: SuperheroItemResponse, onItemSelected: (String) -> Unit) {
         binding.tvSuperheroName.text = superheroItemResponse.name
-        /* Log.i("response2",superheroItemResponse.superheroImage.url) */
+
+        //Picasso.get()
+        //    .load(superheroItemResponse.superheroImage.url)
+        //    .into(binding.ivSuperhero)
+
         Picasso.get()
-            .load(superheroItemResponse.superheroImage.url)
+            .load("https://picsum.photos/200/300")
             .into(binding.ivSuperhero)
+
+
+
 
         binding.root.setOnClickListener { onItemSelected(superheroItemResponse.superheroId)
 

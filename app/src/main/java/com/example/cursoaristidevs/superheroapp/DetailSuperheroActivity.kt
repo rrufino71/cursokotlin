@@ -44,9 +44,10 @@ class DetailSuperheroActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val superheroDetail =
                 getRetrofit().create(ApiService::class.java).getSuperheroDetail(id)
-            if(superheroDetail.body() != null ) {
+            if (superheroDetail.body() != null) {
                 Log.i("ruben", superheroDetail.toString())
-                runOnUiThread { createUI(superheroDetail.body()!!)
+                runOnUiThread {
+                    createUI(superheroDetail.body()!!)
 
                 }
             }
@@ -54,6 +55,9 @@ class DetailSuperheroActivity : AppCompatActivity() {
     }
 
     private fun createUI(superhero: SuperHeroDetailResponse) {
-        Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
+        //Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
+        Picasso.get()
+            .load("https://picsum.photos/200/300")
+            .into(binding.ivSuperhero)
     }
 }
