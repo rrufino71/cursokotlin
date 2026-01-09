@@ -58,12 +58,14 @@ class DetailSuperheroActivity : AppCompatActivity() {
     }
 
     private fun createUI(superhero: SuperHeroDetailResponse) {
-        //Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
-        Picasso.get()
-            .load("https://picsum.photos/200/300")
-            .into(binding.ivSuperhero)
+        Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
+       // Picasso.get()
+        //    .load("https://picsum.photos/200/300")
+         //   .into(binding.ivSuperhero)
         binding.tvSuperheroName.text = superhero.name
         prepareStats(superhero.powerstats)
+        binding.tvSuperheroRealName.text = superhero.biography.fullName
+        binding.tvPublisher.text = superhero.biography.publisher
     }
 
     private fun prepareStats(powerstats: PowerStatsResponse) {
