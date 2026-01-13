@@ -2,6 +2,7 @@ package com.example.cursoaristidevs.settings
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.cursoaristidevs.R
 import com.example.cursoaristidevs.databinding.ActivitySettingsBinding
 import com.example.cursoaristidevs.databinding.ActivitySuperHeroListBinding
@@ -22,6 +23,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        TODO("Not yet implemented")
+        Log.i("ruben","settings")
     }
 }
